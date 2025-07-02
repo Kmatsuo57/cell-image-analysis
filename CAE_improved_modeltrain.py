@@ -479,8 +479,8 @@ class ImprovedAnomalyDetectionTraining:
 
 def main():
     # 設定
-    folder_path = "/Users/matsuokoujirou/Documents/Data/Amritha/DCP/"
-    output_dir = f"/Users/matsuokoujirou/Documents/Data/Amritha/{datetime.now().strftime('%Y%m%d_%H%M')}"
+    folder_path = "/path/to/your/training/images/"  # 訓練用画像フォルダのパスを指定
+    output_dir = f"/path/to/your/output/{datetime.now().strftime('%Y%m%d_%H%M')}"  # 出力先パスを指定
     
     # 訓練パイプライン実行
     trainer = ImprovedAnomalyDetectionTraining(output_dir)

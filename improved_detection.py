@@ -406,88 +406,18 @@ class ProductionMutantScreening:
 def main():
     """メイン実行関数"""
     # 設定
-    model_dir = "/Users/matsuokoujirou/Documents/Data/Screening/Models/20250614_1152_improved"
+    model_dir = "/path/to/your/models/"  # 訓練済みモデルフォルダのパスを指定
     
     # テストサンプル
     test_folders = {
-        'RG2_current': "/Users/matsuokoujirou/Documents/Data/Screening/250603_check/RG2",
-        '3-1':'/Volumes/NO NAME/240622/3-1',
-        '3-2':'/Volumes/NO NAME/240622/3-2',
-        '3-3':'/Volumes/NO NAME/240622/3-3',
-        '3-4':'/Volumes/NO NAME/240622/3-4',
-        "4-1":'/Volumes/NO NAME/240622/4-1',
-        "4-2":'/Volumes/NO NAME/240622/4-2',
-        "4-3":'/Volumes/NO NAME/240622/4-3',
-        "4-4":'/Volumes/NO NAME/240622/4-4',
-        "5-1":'/Volumes/NO NAME/240622/5-1',
-        "5-2":'/Volumes/NO NAME/240622/5-2',
-        "5-3":'/Volumes/NO NAME/240622/5-3',
-        "5-4":'/Volumes/NO NAME/240622/5-4',
-        "6-1":'/Volumes/NO NAME/240622/6-1',
-        "6-2":'/Volumes/NO NAME/240622/6-2',
-        "6-3":'/Volumes/NO NAME/240622/6-3',
-        "6-4":'/Volumes/NO NAME/240622/6-4',
-        "7-1":'/Volumes/NO NAME/240630/plate7/7-1',
-        "7-2":'/Volumes/NO NAME/240630/plate7/7-2',
-        "7-3":'/Volumes/NO NAME/240630/plate7/7-3',
-        "7-4":'/Volumes/NO NAME/240630/plate7/7-4',
-        "8-1":'/Volumes/NO NAME/240630/plate8/8-1',
-        "8-2":'/Volumes/NO NAME/240630/plate8/8-2',
-        "8-3":'/Volumes/NO NAME/240630/plate8/8-3',
-        "8-4":'/Volumes/NO NAME/240630/plate8/8-4',
-        "9-1":'/Volumes/NO NAME/240630/plate9/9-1',
-        "9-2":'/Volumes/NO NAME/240630/plate9/9-2',
-        "9-3":'/Volumes/NO NAME/240630/plate9/9-3',
-        "9-4":'/Volumes/NO NAME/240630/plate9/9-4',
-        "10-1":'/Volumes/NO NAME/240630/plate10/10-1',
-        "10-2":'/Volumes/NO NAME/240630/plate10/10-2',
-        "10-3":'/Volumes/NO NAME/240630/plate10/10-3',
-        "10-4":'/Volumes/NO NAME/240630/plate10/10-4',
-        '10A': "/Users/matsuokoujirou/Documents/Data/Screening/250603_check/10A",
-        '10B': "/Users/matsuokoujirou/Documents/Data/Screening/250603_check/10B",
-        '10C': "/Users/matsuokoujirou/Documents/Data/Screening/250603_check/10C",
-        '10D': "/Users/matsuokoujirou/Documents/Data/Screening/250603_check/10D",
-        '6C1': "/Users/matsuokoujirou/Documents/Data/Screening/250603_check/6C1",
-        '6D6': "/Users/matsuokoujirou/Documents/Data/Screening/250603_check/6D6",
-        "KO-60":"/Users/matsuokoujirou/Documents/Data/imaging_data/240501_KO-60",
-        "KO-62":"/Users/matsuokoujirou/Documents/Data/imaging_data/240501_KO-62",
-        "ccm1":"/Users/matsuokoujirou/Documents/Data/imaging_data/240206_RV5ccm1_LC_pyrearea",
-        "WT":"/Users/matsuokoujirou/Documents/Data/imaging_data/240404/RV5_teacher",
-        "EPYC1":"/Users/matsuokoujirou/Documents/Data/Screening/Abnormal_data/epyc1",
-        "MITH1":"/Users/matsuokoujirou/Documents/Data/Screening/Abnormal_data/mith1",
-        "RBMP1":"/Users/matsuokoujirou/Documents/Data/Screening/Abnormal_data/rbmp1",
-        "RBMP2":"/Users/matsuokoujirou/Documents/Data/Screening/Abnormal_data/rbmp2",
-        "RG2_AM":"/Users/matsuokoujirou/Documents/Data/Screening/Abnormal_data/RG2",
-        "SAGA1":"/Users/matsuokoujirou/Documents/Data/Screening/Abnormal_data/saga1",
-        "SAGA2":"/Users/matsuokoujirou/Documents/Data/Screening/Abnormal_data/saga2",
-        # "6-2-1":'/Volumes/NO NAME/240628/6-2/6-2-1',
-        # "6-2-2":'/Volumes/NO NAME/240628/6-2/6-2-2',
-        # "6-2-3":'/Volumes/NO NAME/240628/6-2/6-2-3',
-        # "6-2-4":'/Volumes/NO NAME/240628/6-2/6-2-4',
-        # "6-2-5":'/Volumes/NO NAME/240628/6-2/6-2-5',
-        # "6-2-6":'/Volumes/NO NAME/240628/6-2/6-2-6',
-        # "6-2-7":'/Volumes/NO NAME/240628/6-2/6-2-7',
-        # "6-2-8":'/Volumes/NO NAME/240628/6-2/6-2-8', 
-        # "6-2-9":'/Volumes/NO NAME/240628/6-2/6-2-9',
-        # "6-2-10":'/Volumes/NO NAME/240628/6-2/6-2-10',
-        # "6-2-11":'/Volumes/NO NAME/240628/6-2/6-2-11',
-        # "6-2-12":'/Volumes/NO NAME/240628/6-2/6-2-12', 
-        # "6-2-13":'/Volumes/NO NAME/240628/6-2/6-2-13',
-        # "6-2-14":'/Volumes/NO NAME/240628/6-2/6-2-14',
-        # "6-2-15":'/Volumes/NO NAME/240628/6-2/6-2-15',
-        # "6-2-16":'/Volumes/NO NAME/240628/6-2/6-2-16',
-        # "6-2-17":'/Volumes/NO NAME/240628/6-2/6-2-17',
-        # "6-2-18":'/Volumes/NO NAME/240628/6-2/6-2-18',
-        # "6-2-19":'/Volumes/NO NAME/240628/6-2/6-2-19',
-        # "6-2-20":'/Volumes/NO NAME/240628/6-2/6-2-20',
-        # "6-2-21":'/Volumes/NO NAME/240628/6-2/6-2-21',
-        # "6-2-22":'/Volumes/NO NAME/240628/6-2/6-2-22',
-        # "6-2-23":'/Volumes/NO NAME/240628/6-2/6-2-23',
-        # "6-2-24":'/Volumes/NO NAME/240628/6-2/6-2-24',
+        'sample_strain_1': "/path/to/your/test/images/strain1/",  # テスト用画像フォルダのパスを指定
+        'sample_strain_2': "/path/to/your/test/images/strain2/",  # テスト用画像フォルダのパスを指定
+        'sample_strain_3': "/path/to/your/test/images/strain3/",  # テスト用画像フォルダのパスを指定
+        # 必要に応じて追加のサンプルを指定
     }
     
     # 出力ディレクトリ
-    output_dir = f"/Users/matsuokoujirou/Documents/Data/Screening/Results/{datetime.now().strftime('%Y%m%d_%H%M')}_improved_screening"
+    output_dir = f"/path/to/your/results/{datetime.now().strftime('%Y%m%d_%H%M')}_improved_screening"  # 結果出力先パスを指定
     
     # スクリーニング実行
     screener = ProductionMutantScreening(model_dir)
